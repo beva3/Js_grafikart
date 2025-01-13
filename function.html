@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function </title>
+</head>
+
+<body>
+    <script>
+        // console.log(this);
+        // a = {
+        //     f_name : "raphael",
+        //     me : function(){
+        //         console.log(this);
+        //     }
+        // }
+        // a.me()
+        // const isEven = function(n,cb){
+        //     if (n % 2 === 0){
+        //         cb(n)
+        //     }
+        // }
+
+        // isEven(2,(n)=>{
+        //     console.log(`${n} is Even`);  
+        // })
+
+        // function getRandomInt(max){
+        //     return Math.floor(Math.random() * (max + 1))
+        // }
+        // const solution = getRandomInt(2);
+        // console.log(solution);
+
+        // function isRight(n){
+        //     return solution === n
+        // }
+
+        // function geuss(){
+        //     const number = prompt("Enter number ") * 1
+        //     return isRight(number)
+        // }
+
+        // for (let i = 0; i < 3 ;i++) {
+        //     if(geuss()){
+        //         console.log("Bravo");
+        //         break;
+        //     }else if ( i === 2){
+        //         console.log("Vous avez perdu");   
+        //     }      
+        // }
+        function isPremier(n) {
+            if(n<2){
+                return false
+            }
+            for(let i = n -1; i>=2 ; i--){
+                if (n % i === 0){
+                    return false
+                }
+            }
+            return true
+        }
+        for (let index = 0; index < 10; index++) {
+            console.log(index, isPremier(index));
+        }
+
+
+    </script>
+</body>
+
+</html>

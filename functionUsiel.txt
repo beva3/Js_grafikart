@@ -1,0 +1,32 @@
+at
+filter
+find
+foreach
+
+includes : a is include in A
+indexOf
+Join
+map : transformation de tableau
+	10 elts => 10 elts update
+
+	ex : 	obj = [{f_name,l_name}]
+		obj.map((p) => p.f_name + ' ' + p.l_name
+join
+pop : retirer le dernier element du tableau
+push : send dernier element 
+reduce : manahena
+	ex : notes = [], use callbac
+	sum = notes.reduce((acc, note) => acc + note,0)
+
+unshift
+assign
+{...}
+defineproperty
+entries
+freeze
+is : comparaterer
+kyes
+appy
+function.bind(value)
+
+	

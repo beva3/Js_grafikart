@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice function</title>
+</head>
+
+<body>
+    <script>
+        const string = 'klja... fdlkaj alkdfjThe cat, the cat, the cat jumped over the fence. The dog, the dog barked loudly. The cat, the cat, was quick, quick enough to escape. The dog, the dog, chased the cat, but the cat, the cat, ran faster'
+        console.log(string);
+        
+        let dict = {}
+        let freq_array = []
+        const words = string
+            .toUpperCase()
+            .replaceAll(/[,.]/g,'')
+            .split(' ')
+
+        console.log(words);
+        // for (w of words) {
+        //     if (dict[w]) {
+        //         dict[w]++
+        //     }
+        //     else {
+        //         dict[w] = 1
+        //     }
+        // }
+        dict = words.reduce((acc,w)=>{
+            acc[w] = (acc[w] || 0) + 1
+            return acc
+        },{})
+        console.log(dict);
+        // for (k in dict){
+        //     freq_array.push({
+        //         w : k,
+        //         count : dict[k]
+        //     })
+        // }       
+        for([w, count] of Object.entries(dict)){
+            freq_array.push({w,count})
+        } 
+        console.log(freq_array.sort((a,b)=> b.count - a.count));
+        
+        const ws = ["cat","dog","cat","mouse","cat"]
+        let acc = {}
+        
+        acc["key1"] = 1
+        console.log(acc);
+
+        console.log(acc);
+        
+        
+        
+
+    </script>
+</body>
+
+</html>

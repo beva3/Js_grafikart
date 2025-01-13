@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>second degree</title>
+</head>
+
+<body>
+
+    <div class="container mt-5" style="width : 400px;">
+        <h1 class="text-center mb-4">Quadratic Equation Solver</h1>
+
+        <!-- Form for inputting coefficients -->
+        <form id="quadraticForm">
+            <div class="mb-3">
+                <label for="a" class="form-label">Enter coefficient a:</label>
+                <input type="number" class="form-control" id="a" required>
+            </div>
+            <div class="mb-3">
+                <label for="b" class="form-label">Enter coefficient b:</label>
+                <input type="number" class="form-control" id="b" required>
+            </div>
+            <div class="mb-3">
+                <label for="c" class="form-label">Enter coefficient c:</label>
+                <input type="number" class="form-control" id="c" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Solve</button>
+        </form>
+
+        <!-- Display the solutions -->
+        <div class="mt-4" id="result" style="display:none;">
+            <h3>Solutions:</h3>
+            <p id="solution1"></p>
+            <p id="solution2"></p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+
+    <script>
+        class SecondDegree {
+            constructor(a, b, c) {
+                this.a = a
+                this.b = b
+                this.c = c
+            }
+            getDiscriminant() {
+                return this.b ** 2 - 4 * this.a * this.c
+            }
+            getRoots() {
+                const delta = this.getDiscriminant()
+                if (delta < 0) {
+                    return []
+                } else if (delta === 0) {
+                    return [-this.b / (2 * this.a)]
+                } else {
+                    const root1 = (-this.b + Math.sqrt(delta)) / (2 * this.a)
+                    const root2 = (-this.b - Math.sqrt(delta)) / (2 * this.a)
+                    return [root1, root2]
+                }
+            }
+        }
+
+        document.getElementById('quadraticForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const a = parseInt(document.getElementById('a').value)
+            const b = parseInt(document.getElementById('b').value)
+            const c = parseInt(document.getElementById('c').value)
+
+            const equation = new SecondDegree(a, b, c)
+            const roots = equation.getRoots()
+            if (roots.length === 0) {
+                document.getElementById('solution1').textContent = 'No real roots'
+                document.getElementById('solution2').textContent = ''
+            } else if (roots.length === 1) {
+                document.getElementById('solution1').textContent = `Root 1: ${roots[0]}`
+
+            }
+            else{
+                document.getElementById('solution1').textContent = `Root 1: ${roots[0]}`
+                document.getElementById('solution2').textContent = `Root 2: ${roots[1]}`
+            }
+            document.getElementById('result').style.display = 'block'
+        });
+
+    </script>
+</body>
+
+</html>

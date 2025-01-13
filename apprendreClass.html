@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apprendre le class</title>
+</head>
+
+<body>
+    <script>
+        const a = {a:2}
+        class Student{
+            ecole = 'Jule Ferry'
+            _notes = []
+            #secret = 'Hello'
+            constructor(firstNAme, lastName){
+                this.firstNAme = firstNAme
+                this.lastName = lastName
+            }
+            setNotes(notes){
+                this.notes = notes
+            }
+            set notes (v){
+                if(Array.isArray(v)){
+                    this._notes = v
+                }
+            }
+            get name(){
+                return `${this.firstNAme} ${this.lastName}`
+            }
+            static moyenne = 10
+            moyenne(){
+                return this._notes.reduce((acc,v)=>acc+v,0)/this._notes.length
+            }
+            canPass(){
+                return this.moyenne() >= 10
+            }
+        }
+        class superStudent extends Student{
+            constructor(firstNAme, lastName,notes){
+                super(firstNAme, lastName,notes)
+            }
+            canPass(){
+                return true
+            }
+            get name(){
+                return `Super ${super.name}`
+            }
+        }
+        const john = new superStudent('Raphael','Kouame',[12,20,15,18])
+        const jean = new Student('Bienvenu','Ernesto')
+        // john.setNotes([12,20,15,18])
+        jean.setNotes([10,1,8,9])
+        
+        console.log(john.canPass(),jean.canPass());
+        console.log(john.name);
+        
+        
+    </script>
+</body>
+
+</html>

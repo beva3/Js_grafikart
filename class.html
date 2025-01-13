@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+
+<body>
+    <script>
+        // function isPalindrom(word){
+        //     const reverseWord = word
+        //         .split('')
+        //         .reverse()
+        //         .join('')
+
+        //     return word.toUpperCase() === reverseWord.toUpperCase()
+        // }
+        // console.log(isPalindrom('raphael'))
+        // console.log(isPalindrom('sos'))
+        // const students = [
+        //     { name: "Diana", marks: [18, 25, 35, 42] },
+        //     { name: "Charlie", marks: [20, 30, 40, 50] },
+        //     { name: "Ethan", marks: [22, 27, 37, 47] },
+        //     { name: "Bob", marks: [15, 28, 39, 48] },
+        //     { name: "Alice", marks: [12, 23, 34, 45] }
+        // ];
+
+        // // console.log(students);
+
+        // const moyenne = (marks) => {
+        //     const sum = marks.reduce((acc, v) => acc + v, 0)
+        //     return sum / marks.length
+        // }
+
+        // for (let s of students) {
+        //     s.moyenne = moyenne(s.marks)
+        //     s.worst = Math.min(...s.marks)
+        //     s.better = Math.max(...s.marks)
+        // }
+        // const compareStudent = (a, b) => {
+        //     return a.moyenne - b.moyenne
+        // }
+
+        // students.sort(compareStudent)
+        // console.log(students);
+
+        // const formaStudent = (s)=>{
+        //     return `${s.name} with mean : ${s.moyenne}, worst mark : ${s.worst} and better mark : ${s.better}`
+        // }
+        // console.log(`Top 3 students`)
+        // console.log(`1 : ${formaStudent(students[0])}`)
+        // console.log(`2 : ${formaStudent(students[1])}`)
+        // console.log(`3 : ${formaStudent(students[2])}`)
+
+        //  calculer le frequance de mot dans une phrase
+        let frequances = {} 
+        const phrase = "The cat, the cat, the cat jumped over the fence. The dog, the dog barked loudly. The cat, the cat, was quick, quick enough to escape. The dog, the dog, chased the cat, but the cat, the cat, ran faster"
+        const words = phrase
+            .toLocaleLowerCase()
+            .replaceAll(',','')
+            .split(' ')
+        console.log(words);
+        
+        for (w of words) {
+            if (frequances[w]) {
+                frequances[w]++
+            } else {
+                frequances[w] = 1
+            }
+        }
+        console.log('frequance : ',frequances);
+        
+        const frequancesArray = []
+        for (let k in frequances){
+            frequancesArray.push({
+                w       :   k,
+                count   :   frequances[k]
+            })
+        }
+        frequancesArray.sort((a,b) => b.count - a.count)
+        console.log(frequancesArray);
+        
+        // console.log(frequancesArray[1].count);
+        
+        
+        
+
+        // split
+        // {void : 3, moi :3}
+        // replace
+    </script>
+</body>
+
+</html>
