@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reviews</title>
+</head>
+<body>
+    <script>
+        const strings = "azsxxccxszxfcgvhdsakhkjashdfskajhlsskjskjhkjxnbaz"
+        const chars = strings
+            .toLowerCase()
+            .split('')
+        console.log(chars);
+
+        // {char,count} dict
+        const dict_freq = chars.reduce((dicTmp, key) =>{
+            dicTmp[key] = (dicTmp[key] || 0) +1
+            return dicTmp
+        },{})
+
+        let dict_freq2 = {}
+        
+        for (c of chars){
+            if(dict_freq2[c]){
+                dict_freq2[c] +=1
+            }else{
+                dict_freq2[c] = 1 // initializ
+            }
+        }
+        let tabOfObj = []
+        for(key in dict_freq){
+            tabOfObj.push({
+                char    : key,
+                count   : dict_freq[key]
+            })
+        }
+        console.log(tabOfObj);
+        let countGrouped = tabOfObj.reduce((acc,obj)=>{
+            const count = obj.count
+            if (!acc[count]) {
+                acc[count] = []
+            }
+            acc[count].push(obj.char)
+            return acc
+        })
+        
+        console.log(countGrouped);
+        
+                       
+    </script>
+</body>
+</html>
