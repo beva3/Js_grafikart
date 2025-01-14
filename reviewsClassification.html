@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classification</title>
+</head>
+
+<body>
+    <script>
+        const chars = 'okfaifnviushbfiuaobufhowxhjbajhbajbzjbjsdahbqwuiakhsdkajahsbjhabjjhbxsajhbjabjjhbazjhbadhjbds'
+        const tabChars = chars
+            .toUpperCase()
+            .split('')
+
+        let frequance = {}
+        // for char of tabBhars, {char : count, ...}
+        for (char of tabChars) {
+            if (!frequance[char]) {
+                frequance[char] = 1
+            }
+            frequance[char]++
+        }
+        // other methode : use reduce methode
+
+        let freq_array = []
+        // {} --> [{},{}, ...]
+        // {char : charValu, count : number}
+
+        for (char in frequance) {
+            freq_array.push({
+                key: char,
+                count: frequance[char]
+            })
+
+        }
+        
+        console.log(freq_array.sort((a,b) => a.count - b.count));
+        
+        const groupedCount = freq_array.reduce((acc,obj)=>{
+            const count = obj.count
+            if(!acc[count]){
+                acc[count] = []
+            }
+            acc[count].push(obj.key)
+            return acc
+        })
+
+    </script>
+</body>
+
+</html>
