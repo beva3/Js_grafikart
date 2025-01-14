@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reduce </title>
+</head>
+
+<body>
+    <script>
+        const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        const sum = num.reduce(mySum, 0)
+        function mySum(acc, curr) {
+            return acc + curr
+        }
+        /**
+         * 1.   acc = 0,    curr = 1    => acc = 0 + 1 = 1
+         * 2.   acc = 1,    curr = 2    => acc = 1 + 2 = 3
+         * 3.   acc = 3,    curr = 3    => acc = 3 + 3 = 6
+         * 4.   acc = 6,    curr = 4    => acc = 6 + 4 = 10
+         * 5.   acc = 10,   curr = 5    => acc = 10 + 5 = 15
+         * 6.   acc = 15,   curr = 6    => acc = 15 + 6 = 21
+         * 7.   acc = 21,   curr = 7    => acc = 21 + 7 = 28
+         * 8.   acc = 28,   curr = 8    => acc = 28 + 8 = 36
+         * 9.   acc = 36,   curr = 9    => acc = 36 + 9 = 45
+         * 10.  acc = 45,   curr = 10   => acc = 45 + 10 = 55
+         */
+        let dict = {}
+        dict['myKey'] = 'myValue'
+        dict['myKey2'] = 'myValue2'
+        dict['myKey3'] = 'myValue3'
+
+        // const myPhrase = 'hello world, how are you today, i hope you are fine, i am fine too, thank you, bye, see you soon, good bye'
+        const myPhrase = 'i am, i like'
+        const words = myPhrase
+            .toLowerCase()
+            .replace(/[^a-z ]/g, '')
+            .split(' ')
+        let freq = {}
+        for (word of words) {
+            if (!freq[word]) {
+                freq[word] = 0
+                            //  0 bcs we add (1) in the next line
+            }
+            freq[word]++    // this is the next line
+        }
+
+        const freq2 = words.reduce((freqTmp, currentKey) => {
+            freqTmp[currentKey] = (freqTmp[currentKey] || 0) + 1
+            return freqTmp
+        }, {})
+
+        const freq3 = words.reduce((freqTmp, currentKey) => {
+            freqTmp[currentKey] = freqTmp[currentKey] ? freqTmp[currentKey] + 1 : 1
+            return freqTmp
+        }, {})
+        // freq[key] is a number
+        // const freq_array = []
+        // for (word in freq) {
+        //     freq_array.push({
+        //         myKey : word,
+        //         myValue : freq[word]
+        //     })
+        // }
+
+        // const freq_array2 = words.reduce((acc, curent)=>{
+        //     if(!acc[curent]){
+        //         acc[curent] = 1
+        //     }else{
+        //         acc[curent]++
+        //     }
+        //     return acc
+        // },{})
+
+    </script>
+</body>
+
+</html>
