@@ -55,6 +55,13 @@
             freqTmp[currentKey] = freqTmp[currentKey] ? freqTmp[currentKey] + 1 : 1
             return freqTmp
         }, {})
+        const tabOfFreq = Object.keys(freq3).reduce((tabTmp,objFreq)=>{
+            tabTmp.push({
+                myKey : objFreq,
+                myValue : freq3[objFreq]
+            })
+            return tabTmp
+        },[])
         // freq[key] is a number
         // const freq_array = []
         // for (word in freq) {
