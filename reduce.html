@@ -32,7 +32,7 @@
         dict['myKey3'] = 'myValue3'
 
         // const myPhrase = 'hello world, how are you today, i hope you are fine, i am fine too, thank you, bye, see you soon, good bye'
-        const myPhrase = 'i am, i like'
+        const myPhrase = 'i am, i like, i am very well, i am very well, wa wa wa wa wa wa wa wa wa'
         const words = myPhrase
             .toLowerCase()
             .replace(/[^a-z ]/g, '')
@@ -62,6 +62,40 @@
             })
             return tabTmp
         },[])
+        /*  tabOfFreq = [
+                {myKey: 'i', myValue: 3}, 
+                {myKey: 'am', myValue: 2}, 
+                {myKey: 'like', myValue: 1}, 
+                {myKey: 'very', myValue: 1}, 
+                {myKey: 'well', myValue: 1}
+            ]
+        */
+        // grouped by value
+        // 1 : [value, value2], 2 : [value], 3 : [value]
+
+        /*
+            [
+                {1: [value, value2,value3]},
+                {2: [value]}, 
+                {3: [value]}
+            ]
+        */
+
+        let groupedByCount = []
+        groupedByCount = tabOfFreq.reduce((groupTmp, obj_i)=>{
+            const groupeKey = obj_i.myValue
+            console.log(groupeKey);
+            if(!groupTmp[groupeKey]){
+                groupTmp[groupeKey] = []
+            }
+            groupTmp[groupeKey].push(obj_i.myKey)
+            
+            return groupTmp
+        },{})
+         
+        console.log(groupedByCount);
+        
+
         // freq[key] is a number
         // const freq_array = []
         // for (word in freq) {
