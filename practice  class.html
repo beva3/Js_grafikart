@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice class</title>
+</head>
+
+<body>
+    <script>
+        class Rectangle {
+            constructor(width, height) {
+                this.width = width
+                this.height = height
+            }
+            get perimeter() {
+                return (this.width + this.height) * 2
+            }
+            get isValid() {
+                return this.width > 0 && this.height > 0
+            }
+            isBiggerThan(shap){
+                return this.perimeter > shap.perimeter
+            }
+        }
+        class Square extends Rectangle{
+            constructor(width){
+                super(width,width)
+            }
+        }
+
+        const r = new Rectangle(5,7)
+        console.log(`Perimeter : ${r.perimeter}`);
+        console.log(r.isValid);
+        
+        const c = new Square(12)
+        console.log(c.perimeter);
+        console.log(c.isValid);
+        console.log(r.isBiggerThan(c));
+        
+        
+        
+        
+        
+
+    </script>
+</body>
+
+</html>
