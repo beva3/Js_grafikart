@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eurreur</title>
+</head>
+
+<body>
+    <script>
+        // function division(a, b) {
+        //     try {
+        //         if (b === 0) {
+        //             throw new Error("Division by zero not allowed")
+        //         }
+        //         return a / b
+
+        //     } catch (error) {
+        //         console.error("Error :", error.message);
+        //         return null
+        //     }
+        // }
+        // console.log(division(2,0));
+
+
+
+         class Rectangle {
+            constructor(width, height) {
+                if(width < 0 || height < 0){
+                    throw new Error("Eurreur du width or height, dim negative")
+                }
+                this.width = width
+                this.height = height
+            }
+            get perimeter() {
+                return (this.width + this.height) * 2
+            }
+            get isValid() {
+                return this.width > 0 && this.height > 0
+            }
+            isBiggerThan(shap){
+                return this.perimeter > shap.perimeter
+            }
+        }
+        class Square extends Rectangle{
+            constructor(width){
+                super(width,width)
+            }
+        }
+
+        const r = new Rectangle(5,7)
+        console.log(`Perimeter : ${r.perimeter}`);
+        console.log(r.isValid);
+
+        const c = new Square(12)
+        console.log(c.perimeter);
+        console.log(c.isValid);
+        console.log(r.isBiggerThan(c));
+        
+        // const r2 = new Rectangle(2,-3)
+        try {
+            const r2 = new Rectangle(2,-3)
+        } catch (error) {
+            console.log(error);
+            
+        }
+        console.log('_');
+        
+        try {
+            const width = parseInt(prompt("width : "), 1)
+            const height = parseInt(prompt("height"), 1)
+            const r3 = new Rectangle(width, height)
+            console.log(r.perimeter);
+            
+            // console.log('Its Ok');
+            
+        } catch (error) {
+            console.log('Impossible de construre la formul du rectangle');
+            
+        }
+
+
+    </script>
+</body>
+
+</html>
