@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>les fonctuni usuelles</title>
+</head>
+<body>
+    <script>
+        const notes = [12,1,18,6,19,8,5]
+        console.log(notes.at(-1));
+        // filter
+        const goodNotes = notes.filter((note) => note < 10)
+        console.log(goodNotes);
+        
+        notes.forEach((i,n) => {
+            console.log(i,n);
+            
+        });
+
+        console.log('include')
+        const array = [
+            "raphael",
+            "paul",
+            "beva"
+        ]
+        console.log(array.includes('paul'));
+        console.log(array.includes('tsy ao'));
+        console.log(array.indexOf('paul'));
+        console.log(array.indexOf('tsyao'));
+
+        const persons = [
+            {f_n : 'raphael', l_n : 'beva'},
+            {f_n : 'jean', l_n : 'paul'},
+            {f_n : 'rakoto', l_n : 'nandrasana'}
+        ]
+
+        console.log(
+            persons
+                .map((p)=> p.f_n + '@' + p.l_n)
+                .join('\n')
+        );
+        
+        console.log(
+            notes
+                .reduce((acc,n) => acc + n,0)
+        )
+
+
+
+    </script>
+</body>
+</html>
