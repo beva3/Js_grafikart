@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer</title>
+</head>
+<body>
+    <script>
+
+
+        // function wait(duration){
+        //     const t = Date.now()
+        //     while ((Date.now() - t) < duration) {
+                
+        //     }
+        // }
+
+        // console.log('Raphael');
+        // // wait(1000)
+        // console.log('Raphael');
+
+        // setTimeout(()=>{
+        //     console.log('Raphael');
+        // },1000)
+
+        // let i =0
+        // const t = setInterval(() =>{
+        //     i++
+        //     if(i===10){
+        //         clearInterval(t)
+        //     }
+        //     console.log('Bonjour')
+        // },1000)
+
+        function decompte(n){
+            const t = setInterval(() => {
+                n--
+                console.log(n);
+                if (n ===0){
+                    clearInterval (t)
+                }
+            },1000)
+        }
+
+        decompte(4)
+        decompte(10)
+        
+    </script>
+</body>
+</html>
