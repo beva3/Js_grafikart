@@ -9,40 +9,99 @@
 
 <body>
     <script>
-        class Rectangle {
-            constructor(width, height) {
-                this.width = width
-                this.height = height
-            }
-            get perimeter() {
-                return (this.width + this.height) * 2
-            }
-            get isValid() {
-                return this.width > 0 && this.height > 0
-            }
-            isBiggerThan(shap){
-                return this.perimeter > shap.perimeter
-            }
-        }
-        class Square extends Rectangle{
-            constructor(width){
-                super(width,width)
-            }
-        }
+        // class Rectangle {
+        //     constructor(width, height) {
+        //         this.width = width
+        //         this.height = height
+        //     }
+        //     get perimeter() {
+        //         return (this.width + this.height) * 2
+        //     }
+        //     get isValid() {
+        //         return this.width > 0 && this.height > 0
+        //     }
+        //     isBiggerThan(shap){
+        //         return this.perimeter > shap.perimeter
+        //     }
+        // }
+        // class Square extends Rectangle{
+        //     constructor(width){
+        //         super(width,width)
+        //     }
+        // }
 
-        const r = new Rectangle(5,7)
-        console.log(`Perimeter : ${r.perimeter}`);
-        console.log(r.isValid);
+        // const r = new Rectangle(5,7)
+        // console.log(`Perimeter : ${r.perimeter}`);
+        // console.log(r.isValid);
+
+        // const c = new Square(12)
+        // console.log(c.perimeter);
+        // console.log(c.isValid);
+        // console.log(r.isBiggerThan(c));
+
+        class Book {
+            #page = 1
+            constructor(title, pages) {
+                this.title = title
+                this.pages = pages
+            }
+            get getPage() {
+                return this.#page
+            }
+            nextPage() {
+                if (this.#page < this.pages) {
+                    this.#page ++
+                }
+            }
+            close() {
+                this.#page = 1
+            }
+        }
+        class Library {
+            #books = []
+            addBook(book) {
+                this.#books.push(book)
+            }
+            addBooks(books) {
+                // for (let book of books) {
+                //     this.addBook(book)
+                // }
+                books.forEach(this.addBook,this)
+            }
+            findBookByLetter(letter) {
+                const found = []
+                // for (let book of this.#books) {
+                //     if (book.title[0].toLowerCase() === letter.toLowerCase()){
+                //         found.push(book)
+                //     }
+                // }
+                return this.#books.filter((book) => book.title[0].toLowerCase() === letter.toLowerCase())
+    
+            }
+        }
+        const b = new Book('Seigneur des animaux', 123)
+        console.log(b.getPage);
+        b.nextPage()
+        b.nextPage()
+        console.log(b.getPage);
+        b.close()
+        console.log(b.getPage);
+
+        const l = new Library();
+        l.addBook(b)
+        l.addBooks([
+            new Book('e-lorem',100),
+            new Book('jean',10),
+            new Book('j-raphael',123),
+            new Book('Einstein',145)
+        ])
+        console.log(l.findBookByLetter('e'));
         
-        const c = new Square(12)
-        console.log(c.perimeter);
-        console.log(c.isValid);
-        console.log(r.isBiggerThan(c));
-        
-        
-        
-        
-        
+
+
+
+
+
 
     </script>
 </body>
