@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>login</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main>
+        <div class="container bg-light my-5 p-5">
+            <h1>Login</h1>
+            <div class="row py-4 g-5">
+                
+                <div class="col-md-6">
+                    <h1 class="text-info">lorem</h1>
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam sint reprehenderit cumque provident incidunt illum ullam minus perspiciatis, doloremque id odio voluptate nostrum omnis neque labore possimus fugiat quos voluptatibus.
+                    </p>
+                    <a href="#" class="btn btn-warning">learn more</a>
+                </div>
+                <div class="col-md-6">
+                    <form action="" method="get">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Name</label>
+                            <input type="text" name="" id="userName" class="form-control" placeholder="Enter your name"
+                                aria-describedby="helpId" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Password</label>
+                            <input type="password" name="" id="userPasswd" class="form-control" placeholder="Enter your password"
+                                aria-describedby="helpId" />
+                        </div>
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-primary px-4" id="btnLogin">Login</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+
+    <script>
+        // login
+        const user = {
+            name : 'raphael',
+            passwd : '1234'
+        }
+
+        function check_login(u){
+            return u.name === user.name && u.passwd === user.passwd
+        }
+
+        // get user
+        
+        const btnLogin = document.getElementById('btnLogin')
+
+        btnLogin.addEventListener('click',()=>{
+            const inputName = document.getElementById('userName').value
+        const inputPasswd = document.getElementById('userPasswd').value
+        
+            const uTmp = {
+                name : inputName,
+                passwd : inputPasswd
+            }
+            
+            if(check_login(uTmp)){
+                console.log('Log in success')
+            }
+            else console.log('Log in failed')
+            
+        })
+
+
+    </script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
