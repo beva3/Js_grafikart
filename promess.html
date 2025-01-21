@@ -7,6 +7,40 @@
 </head>
 <body>
     <script>
+        
+        /**
+            Une promesse est un concept utilisé pour gérer des opérations asynchrones. C’est comme un engagement : on promet qu’une tâche sera terminée à l’avenir, avec deux résultats possibles : 
+            réussite ou échec. Une promesse passe par trois états :
+            
+            En attente (pending) : La tâche est en cours.
+            resultat :     
+                Résolue (fulfilled) : La tâche a réussi, et on obtient un résultat.
+                Rejetée (rejected) : La tâche a échoué, et une erreur est renvoyée.
+
+            Exemple 1 : Commander une pizza
+            Vous commandez une pizza au restaurant (création de la promesse).
+            Le restaurant vous dit qu’il va la préparer. Vous attendez (état pending).
+            Deux résultats possibles :
+            Le restaurant termine la pizza (promesse résolue) et vous la donne.
+            Le restaurant est en panne d’ingrédients (promesse rejetée) et vous recevez un message disant que la commande a échoué.
+
+        
+            Oui, exactement ! Le principe d'une promesse repose sur trois étapes clés :
+
+            Créer une promesse :
+            Vous définissez une tâche asynchrone (une tâche qui prendra du temps), comme commander une pizza, appeler une API, ou lire un fichier.
+
+            Attendre le résultat :
+            La promesse passe par un état en attente (pending). Pendant ce temps, le programme peut continuer à exécuter d'autres choses sans être bloqué.
+
+            Obtenir le résultat :
+            Une fois la tâche terminée, deux résultats possibles :
+
+            Résolue (fulfilled) : La tâche a réussi, et vous recevez le résultat attendu (exemple : la pizza est prête).
+            Rejetée (rejected) : La tâche a échoué, et vous recevez une erreur ou un message d’échec (exemple : plus d’ingrédients pour la pizza).
+
+        **/
+    
         // reject
         // resolve
         //  then 
@@ -25,6 +59,28 @@
         // any
         // promise.race : echec
         
+        // function pour simmuler la commande de pizza
+        function commandePizza(disponible){
+            return new Promise((resolve, reject) => {
+                if (disponible){
+                    resolve('Pizza pret')
+                }else{
+                    reject('Ingredients indisponible, ialana tsiny indrindra tompoko')
+                }
+            });
+        }
+
+        //  utilisation de la promesse
+
+        commandePizza(false)
+            .then((msg) =>{
+                console.log("Success, ", msg);      // Pizza pret
+            })
+            .catch((erreur) =>{
+                console.log('Erreur :', erreur);    // Ingredient indisponibles
+                
+            })
+
     </script>
 </body>
 </html>
